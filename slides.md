@@ -163,6 +163,28 @@ title: 能够解决熵减的三个方向
 </div>
 
 ---
+title: 组件基于 meta 的底层设计
+layout: center
+class: text-center
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#ffb86c] shadow-[0_0_8px_#ffb86c]"></div>
+  <div class="text-[#ffb86c] font-bold tracking-widest uppercase">减少技术复杂度 (D)：组件基于 meta 的底层设计</div>
+</div>
+<div class="flex flex-col items-center justify-center h-full">
+  <div v-motion :initial="{ y: 40, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { duration: 800, delay: 300 } }" class="max-w-2xl bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl relative overflow-hidden group">
+    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-[#ffb86c]/5 rounded-full blur-3xl transition-all group-hover:bg-[#ffb86c]/10"></div>
+    <div class="relative z-10 flex flex-col items-center gap-6">
+      <p class="text-2xl leading-relaxed font-light italic text-gray-200">
+        “由 <span class="text-[#ffb86c] font-medium">Meta</span> 指导基于 <span class="font-mono text-blue-400">TS 类型约束</span> 的组件底层架构设计”
+      </p>
+      <div class="w-16 h-1 bg-gradient-to-r from-transparent via-[#ffb86c] to-transparent opacity-50"></div>
+    </div>
+  </div>
+</div>
+
+---
 layout: image-right
 image: https://cover.sli.dev
 ---
