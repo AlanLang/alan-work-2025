@@ -58,32 +58,38 @@ duration: 35min
 
 ---
 transition: fade-out
+layout: center
+class: text-center
 ---
 
-# 软件开发中的熵
-
-对于软件开发，熵代表系统的混乱、复杂、不确定性和不可控程度。随着代码量增长、需求变动、人员更替，整个系统的“熵”往往不可避免地增加，表现为：
-
-- 代码可读性下降、耦合度上升；
-- 文档滞后于开发实际情况；
-- 测试可覆盖情况降低，bug 频发；
-- 底层代码牵一发而动全身，无法适应业务需求变动；
-
-<!--
-
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+<div class="flex flex-col items-center">
+  <h1 v-motion :initial="{ y: -20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { duration: 600 } }" class="text-3xl font-extrabold mb-4 !text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-500">
+    软件开发中的熵
+  </h1>
+  <p class="text-base opacity-80 mb-6 max-w-3xl px-4 line-tight">熵代表系统的混乱、复杂、不确定性和不可控程度。随着系统演进，熵往往不可避免地增加。</p>
+  <div class="grid grid-cols-2 gap-4 w-full max-w-3xl scale-95 origin-top">
+    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+      <div class="i-carbon-code text-3xl mb-2 text-blue-400 group-hover:scale-110 transition-transform" />
+      <h3 class="text-lg font-bold mb-1">可读性下降</h3>
+      <p class="text-xs opacity-60">代码逻辑破碎、耦合度上升，维护成本指数增加</p>
+    </div>
+    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+      <div class="i-carbon-document-blank text-3xl mb-2 text-emerald-400 group-hover:scale-110 transition-transform" />
+      <h3 class="text-lg font-bold mb-1">文档滞后</h3>
+      <p class="text-xs opacity-60">文档与代码脱节，失去指导价值，增加认知负荷</p>
+    </div>
+    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+      <div class="i-carbon-debug text-3xl mb-2 text-amber-400 group-hover:scale-110 transition-transform" />
+      <h3 class="text-lg font-bold mb-1">测试失效</h3>
+      <p class="text-xs opacity-60">覆盖率下降，旧功能频繁回退，bug 修复后重现</p>
+    </div>
+    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+      <div class="i-carbon-flash text-3xl mb-2 text-rose-400 group-hover:scale-110 transition-transform" />
+      <h3 class="text-lg font-bold mb-1">架构僵化</h3>
+      <p class="text-xs opacity-60">底层堆砌，牵一发而动全身，难以应对业务变化</p>
+    </div>
+  </div>
+</div>
 
 <!--
 Here is another comment.
