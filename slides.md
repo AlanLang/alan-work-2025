@@ -114,24 +114,53 @@ clicks: 7
 -->
 
 ---
-layout: two-cols
-layoutClass: gap-16
-title: 减少技术复杂度
+layout: center
+title: 能够解决熵减的三个方向
 ---
 
-# Table of contents
+<div class="flex flex-col gap-10 w-full max-w-2xl mx-auto">
+  <div class="flex items-center gap-8">
+    <div 
+      v-motion
+      :initial="{ x: -50, opacity: 0 }"
+      :enter="{ x: 0, opacity: 1, transition: { duration: 600 } }"
+      class="text-7xl font-black w-24 text-center" 
+      style="color: #ffb86c"
+    >D</div>
+    <div class="flex flex-col text-left">
+      <div class="text-2xl font-bold mb-1" style="color: #ffb86c">减少技术复杂度</div>
+      <div class="text-gray-400">通过标准化、组件化与持续重构，降低系统熵增速率</div>
+    </div>
+  </div>
 
-You can use the `Toc` component to generate a table of contents for your slides:
+  <div class="flex items-center gap-8">
+    <div 
+      v-motion
+      :initial="{ x: -50, opacity: 0 }"
+      :enter="{ x: 0, opacity: 1, transition: { duration: 600 } }"
+      class="text-7xl font-black w-24 text-center" 
+      style="color: #bd93f9"
+    >T</div>
+    <div class="flex flex-col text-left">
+      <div class="text-2xl font-bold mb-1" style="color: #bd93f9">提升工具减熵因子</div>
+      <div class="text-gray-400">建设高效的基建平台、自动化测试与 CI/CD 流程</div>
+    </div>
+  </div>
 
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
+  <div class="flex items-center gap-8">
+    <div 
+      v-motion
+      :initial="{ x: -50, opacity: 0 }"
+      :enter="{ x: 0, opacity: 1, transition: { duration: 600 } }"
+      class="text-7xl font-black w-24 text-center" 
+      style="color: #ff5555"
+    >P</div>
+    <div class="flex flex-col text-left">
+      <div class="text-2xl font-bold mb-1" style="color: #ff5555">优化开发模式成熟度</div>
+      <div class="text-gray-400">推行敏捷、持续交付与沉淀良好的工程文化</div>
+    </div>
+  </div>
+</div>
 
 ---
 layout: image-right
