@@ -884,7 +884,6 @@ clicks: 1
   <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 0 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
     <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm truncate" title="湖南大学2023年个人年度报告">湖南大学年度报告</div>
     <div class="col-span-6 flex items-center gap-2">
-      <span class="text-xs font-bold text-[#50fa7b] w-12">0.41s</span>
       <div class="flex-1 relative h-5">
         <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 16%"></div></div>
         <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 4%"></div></div>
@@ -983,6 +982,119 @@ clicks: 1
     </div>
     <div class="px-3 py-1 bg-[#50fa7b]/20 rounded-full border border-[#50fa7b]/30">
       <span class="text-[#50fa7b] font-bold">最高提升 76%</span>
+    </div>
+  </div>
+</div>
+
+---
+title: 性能优化总结
+layout: center
+---
+
+<div class="flex flex-col items-center justify-center">
+  <h1 v-motion :initial="{ y: -30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { duration: 600 } }" class="text-4xl font-extrabold mb-8 !text-transparent bg-clip-text bg-gradient-to-r from-[#50fa7b] via-[#8be9fd] to-[#bd93f9]">
+    新预览重构性能优化总结
+  </h1>
+  
+  <div v-click v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { duration: 500 } }" class="relative mb-1">
+    <div class="text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#50fa7b] to-[#8be9fd]">
+      50%
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-3 gap-6 mt-8 max-w-3xl">
+    <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 100 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+      <div class="text-3xl font-bold text-[#50fa7b] mb-1">46%</div>
+      <div class="text-xs text-gray-400 text-center">简单模板<br/>平均提升</div>
+    </div>
+    <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 200 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+      <div class="text-3xl font-bold text-[#8be9fd] mb-1">88%</div>
+      <div class="text-xs text-gray-400 text-center">复杂模板<br/>最高提升</div>
+    </div>
+    <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+      <div class="text-3xl font-bold text-[#bd93f9] mb-1">76%</div>
+      <div class="text-xs text-gray-400 text-center">客户场景<br/>最高提升</div>
+    </div>
+  </div>
+  
+  <div v-click v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 500 } }" class="mt-10 px-8 py-4 bg-gradient-to-r from-[#50fa7b]/10 via-[#8be9fd]/10 to-[#bd93f9]/10 rounded-2xl border border-[#50fa7b]/30">
+    <div class="flex items-center gap-3">
+      <div class="i-carbon-checkmark-filled text-3xl text-[#50fa7b]"></div>
+      <span class="text-xl font-bold text-white">新预览重构圆满成功！</span>
+    </div>
+  </div>
+</div>
+
+---
+title: 存在的问题和改进措施
+layout: default
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#ff5555] shadow-[0_0_8px_#ff5555]"></div>
+  <div class="text-[#ff5555] font-bold tracking-widest uppercase">存在的问题和改进措施</div>
+</div>
+
+<div class="mt-20 grid grid-cols-2 gap-8 px-4">
+  <div v-click v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="i-carbon-time text-2xl text-[#ffb86c]"></div>
+      <h3 class="text-xl font-bold text-[#ffb86c]">任务预估不准确</h3>
+    </div>
+    
+  <p class="text-sm italic text-gray-300">"我们常常高估自己对事物的理解程度"</p>
+    
+  <div class="space-y-2 text-sm text-gray-300">
+      <div class="flex items-start gap-2">
+        <span class="text-[#ff5555]">✗</span>
+        <span>前期预估与实际执行差异巨大</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="text-[#ff5555]">✗</span>
+        <span>对已有业务不了解或自认为了解</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="text-[#ff5555]">✗</span>
+        <span>无法将所有业务逻辑装入大脑</span>
+      </div>
+    </div>
+    
+  <div class="mt-4 pt-4 border-t border-white/10">
+      <div class="text-xs text-[#50fa7b] font-bold mb-2">改进方向</div>
+      <p class="text-sm text-gray-400">需要一个了解所有业务逻辑的 <span class="text-[#8be9fd]">"人"</span> 或 <span class="text-[#8be9fd]">"东西"</span>，在修改业务时提供有价值的建议</p>
+    </div>
+  </div>
+  
+  <div v-click v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="i-carbon-code text-2xl text-[#bd93f9]"></div>
+      <h3 class="text-xl font-bold text-[#bd93f9]">架构设计更新滞后</h3>
+    </div>
+    
+  <p class="text-sm italic text-gray-300">"好的代码不是写出来的，而是改出来的"</p>
+    
+  <div class="space-y-2 text-sm text-gray-300">
+      <div class="flex items-start gap-2">
+        <span class="text-[#ff5555]">✗</span>
+        <span>优秀设计仅在项目初期落地</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="text-[#ff5555]">✗</span>
+        <span>设计随功能迭代逐渐过时</span>
+      </div>
+      <div class="flex items-start gap-2">
+        <span class="text-[#ff5555]">✗</span>
+        <span>特殊处理导致难以维护</span>
+      </div>
+    </div>
+    
+  <div class="mt-4 pt-4 border-t border-white/10">
+      <div class="text-xs text-[#50fa7b] font-bold mb-2">改进方向</div>
+      <div class="text-sm text-gray-400 space-y-1">
+        <div class="flex items-center gap-2"><span class="text-[#50fa7b]">1.</span> 整理现有代码问题</div>
+        <div class="flex items-center gap-2"><span class="text-[#50fa7b]">2.</span> 思考解决方案</div>
+        <div class="flex items-center gap-2"><span class="text-[#50fa7b]">3.</span> 提成重构任务逐步处理</div>
+      </div>
     </div>
   </div>
 </div>
