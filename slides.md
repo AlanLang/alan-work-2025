@@ -1225,74 +1225,193 @@ layout: center
 </div>
 
 ---
+title: 在一体化平台上线新预览
+layout: center
+---
+
+<style>
+@keyframes progress-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes check-pop {
+  0% { transform: scale(0) rotate(-45deg); }
+  50% { transform: scale(1.2) rotate(0deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+@keyframes node-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(80, 250, 123, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(80, 250, 123, 0); }
+}
+.progress-line {
+  background: linear-gradient(90deg, #50fa7b, #8be9fd, #50fa7b);
+  background-size: 200% 100%;
+  animation: progress-flow 2s linear infinite;
+}
+.node-current { animation: node-pulse 2s ease-in-out infinite; }
+.check-animation { animation: check-pop 0.5s ease-out forwards; }
+</style>
+
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <div class="absolute top-20 left-1/4 w-64 h-64 bg-[#50fa7b]/8 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-20 right-1/4 w-72 h-72 bg-[#8be9fd]/8 rounded-full blur-3xl"></div>
+</div>
+
+<div class="flex flex-col items-center gap-10 relative z-10">
+  <div class="text-center">
+    <div v-motion :initial="{ y: -30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { duration: 600 } }" class="flex items-center justify-center gap-3 mb-4">
+      <div class="w-2 h-2 rounded-full bg-[#50fa7b] animate-pulse"></div>
+      <span class="text-sm text-gray-400 tracking-wider">2025 年度重点工作</span>
+      <div class="w-2 h-2 rounded-full bg-[#50fa7b] animate-pulse"></div>
+    </div>
+    <h1 v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 200, type: 'spring' } }" class="text-5xl font-black !text-transparent bg-clip-text bg-gradient-to-r from-[#50fa7b] via-[#8be9fd] to-[#bd93f9]">在一体化平台上线新预览</h1>
+    <p v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 400 } }" class="text-gray-400 mt-3">将预览重构的成果落地到一体化平台，实现全平台统一体验</p>
+  </div>
+  <div v-motion :initial="{ y: 40, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 600, duration: 800 } }" class="w-full max-w-5xl px-12">
+    <div class="relative flex items-center justify-between">
+      <div class="absolute inset-x-0 top-3 h-0.5 bg-white/10"></div>
+      <div class="absolute left-0 top-3 h-0.5 progress-line" style="width: 90%;"></div>
+      <div class="relative z-10 flex flex-col items-center gap-2">
+        <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { delay: 800, type: 'spring' } }" class="w-6 h-6 rounded-full bg-[#50fa7b] flex items-center justify-center shadow-[0_0_12px_rgba(80,250,123,0.5)]">
+          <div class="i-carbon-checkmark text-xs text-black"></div>
+        </div>
+        <span class="text-xs font-medium text-[#50fa7b] mt-1">合并代码</span>
+      </div>
+      <div class="relative z-10 flex flex-col items-center gap-2">
+        <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { delay: 900, type: 'spring' } }" class="w-6 h-6 rounded-full bg-[#50fa7b] flex items-center justify-center shadow-[0_0_12px_rgba(80,250,123,0.5)]">
+          <div class="i-carbon-checkmark text-xs text-black"></div>
+        </div>
+        <span class="text-xs font-medium text-[#50fa7b] mt-1">跟随发布</span>
+      </div>
+      <div class="relative z-10 flex flex-col items-center gap-2">
+        <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { delay: 1000, type: 'spring' } }" class="w-6 h-6 rounded-full bg-[#50fa7b] flex items-center justify-center shadow-[0_0_12px_rgba(80,250,123,0.5)]">
+          <div class="i-carbon-checkmark text-xs text-black"></div>
+        </div>
+        <span class="text-xs font-medium text-[#50fa7b] mt-1">适配功能</span>
+      </div>
+      <div class="relative z-10 flex flex-col items-center gap-2">
+        <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { delay: 1100, type: 'spring' } }" class="w-6 h-6 rounded-full bg-[#50fa7b] flex items-center justify-center shadow-[0_0_12px_rgba(80,250,123,0.5)]">
+          <div class="i-carbon-checkmark text-xs text-black"></div>
+        </div>
+        <span class="text-xs font-medium text-[#50fa7b] mt-1">完成转测</span>
+      </div>
+      <div class="relative z-10 flex flex-col items-center gap-2">
+        <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { delay: 1200, type: 'spring' } }" class="w-7 h-7 rounded-full bg-gradient-to-br from-[#8be9fd] to-[#bd93f9] flex items-center justify-center node-current shadow-[0_0_15px_rgba(139,233,253,0.5)]">
+          <div class="i-carbon-rocket text-xs text-black"></div>
+        </div>
+        <span class="text-xs font-medium text-[#8be9fd] mt-1">成功发布</span>
+      </div>
+    </div>
+  </div>
+  <div v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 1400 } }" class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#8be9fd]/10 to-[#bd93f9]/10 rounded-full border border-white/10">
+    <div class="i-carbon-calendar text-[#8be9fd]"></div>
+    <span class="text-sm text-gray-300">预计发布：<span class="text-[#50fa7b] font-semibold">农历年前</span></span>
+  </div>
+</div>
+
+---
 title: 存在的问题和改进措施
 layout: default
 ---
 
-<div class="abs-tl m-10 flex items-center gap-2">
-  <div class="w-3 h-3 rounded-full bg-[#ff5555] shadow-[0_0_8px_#ff5555]"></div>
-  <div class="text-[#ff5555] font-bold tracking-widest uppercase">存在的问题和改进措施</div>
+<style>
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 85, 85, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 85, 85, 0.6); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px) rotate(-1deg); }
+  75% { transform: translateX(2px) rotate(1deg); }
+}
+.float-animation { animation: float-slow 6s ease-in-out infinite; }
+.pulse-glow-animation { animation: pulse-glow 2s ease-in-out infinite; }
+.shake-animation:hover { animation: shake 0.3s ease-in-out; }
+</style>
+
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <div class="absolute top-10 right-20 w-72 h-72 bg-[#ff5555]/8 rounded-full blur-3xl float-animation"></div>
+  <div class="absolute bottom-10 left-20 w-64 h-64 bg-[#ffb86c]/8 rounded-full blur-3xl float-animation" style="animation-delay: -3s;"></div>
 </div>
 
-<div class="mt-20 grid grid-cols-2 gap-8 px-4">
-  <div v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { type: 'spring', stiffness: 300, damping: 15 } }" class="w-3 h-3 rounded-full bg-[#ff5555] pulse-glow-animation"></div>
+  <div v-motion :initial="{ x: -20, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 200 } }" class="text-[#ff5555] font-bold tracking-widest uppercase">存在的问题和改进措施</div>
+</div>
+
+<div class="mt-20 grid grid-cols-2 gap-8 px-4 relative z-10">
+  <div v-motion :initial="{ rotateY: -90, opacity: 0 }" :enter="{ rotateY: 0, opacity: 1, transition: { duration: 800, type: 'spring' } }" class="bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-6 border border-[#ffb86c]/30 backdrop-blur-sm group hover:border-[#ffb86c]/60 hover:shadow-[0_0_30px_rgba(255,184,108,0.2)] transition-all duration-500 shake-animation">
     <div class="flex items-center gap-3 mb-4">
-      <div class="i-carbon-time text-2xl text-[#ffb86c]"></div>
+      <div v-motion :initial="{ rotate: -180, scale: 0 }" :enter="{ rotate: 0, scale: 1, transition: { delay: 400, type: 'spring' } }" class="w-12 h-12 rounded-xl bg-[#ffb86c]/20 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+        <div class="i-carbon-time text-2xl text-[#ffb86c]"></div>
+      </div>
       <h3 class="text-xl font-bold text-[#ffb86c]">任务预估不准确</h3>
     </div>
     
-  <p class="text-sm italic text-gray-300">"我们常常高估自己对事物的理解程度"</p>
+  <p v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1, transition: { delay: 600 } }" class="text-sm italic text-gray-300 mb-3 border-l-2 border-[#ffb86c]/50 pl-3">"我们常常高估自己对事物的理解程度"</p>
     
   <div class="space-y-2 text-sm text-gray-300">
-      <div class="flex items-start gap-2">
-        <span class="text-[#ff5555]">✗</span>
+      <div v-motion :initial="{ x: -20, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 700 } }" class="flex items-start gap-2 group/item">
+        <span class="text-[#ff5555] group-hover/item:animate-pulse">✗</span>
         <span>前期预估与实际执行差异巨大</span>
       </div>
-      <div class="flex items-start gap-2">
-        <span class="text-[#ff5555]">✗</span>
+      <div v-motion :initial="{ x: -20, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 800 } }" class="flex items-start gap-2 group/item">
+        <span class="text-[#ff5555] group-hover/item:animate-pulse">✗</span>
         <span>对已有业务不了解或自认为了解</span>
       </div>
-      <div class="flex items-start gap-2">
-        <span class="text-[#ff5555]">✗</span>
+      <div v-motion :initial="{ x: -20, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 900 } }" class="flex items-start gap-2 group/item">
+        <span class="text-[#ff5555] group-hover/item:animate-pulse">✗</span>
         <span>无法将所有业务逻辑装入大脑</span>
       </div>
     </div>
     
-  <div class="mt-4 pt-4 border-t border-white/10">
-      <div class="text-xs text-[#50fa7b] font-bold mb-2">改进方向</div>
-      <p class="text-sm text-gray-400">需要一个了解所有业务逻辑的 <span class="text-[#8be9fd]">"人"</span> 或 <span class="text-[#8be9fd]">"东西"</span>，在修改业务时提供有价值的建议</p>
+  <div v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 1000 } }" class="mt-4 pt-4 border-t border-white/10">
+      <div class="text-xs text-[#50fa7b] font-bold mb-2 flex items-center gap-2">
+        <div class="i-carbon-arrow-right animate-pulse"></div>
+        改进方向
+      </div>
+      <p class="text-sm text-gray-400">需要一个了解所有业务逻辑的 <span class="text-[#8be9fd] font-semibold">"人"</span> 或 <span class="text-[#8be9fd] font-semibold">"东西"</span>，在修改业务时提供有价值的建议</p>
     </div>
   </div>
   
-  <div v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+  <div v-motion :initial="{ rotateY: 90, opacity: 0 }" :enter="{ rotateY: 0, opacity: 1, transition: { duration: 800, delay: 200, type: 'spring' } }" class="bg-gradient-to-br from-white/10 to-white/5 rounded-2xl p-6 border border-[#bd93f9]/30 backdrop-blur-sm group hover:border-[#bd93f9]/60 hover:shadow-[0_0_30px_rgba(189,147,249,0.2)] transition-all duration-500 shake-animation">
     <div class="flex items-center gap-3 mb-4">
-      <div class="i-carbon-code text-2xl text-[#bd93f9]"></div>
+      <div v-motion :initial="{ rotate: 180, scale: 0 }" :enter="{ rotate: 0, scale: 1, transition: { delay: 600, type: 'spring' } }" class="w-12 h-12 rounded-xl bg-[#bd93f9]/20 flex items-center justify-center group-hover:-rotate-12 transition-transform duration-300">
+        <div class="i-carbon-code text-2xl text-[#bd93f9]"></div>
+      </div>
       <h3 class="text-xl font-bold text-[#bd93f9]">架构设计更新滞后</h3>
     </div>
     
-  <p class="text-sm italic text-gray-300">"好的代码不是写出来的，而是改出来的"</p>
+  <p v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1, transition: { delay: 800 } }" class="text-sm italic text-gray-300 mb-3 border-l-2 border-[#bd93f9]/50 pl-3">"好的代码不是写出来的，而是改出来的"</p>
     
   <div class="space-y-2 text-sm text-gray-300">
-      <div class="flex items-start gap-2">
-        <span class="text-[#ff5555]">✗</span>
+      <div v-motion :initial="{ x: 20, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 900 } }" class="flex items-start gap-2 group/item">
+        <span class="text-[#ff5555] group-hover/item:animate-pulse">✗</span>
         <span>优秀设计仅在项目初期落地</span>
       </div>
-      <div class="flex items-start gap-2">
-        <span class="text-[#ff5555]">✗</span>
+      <div v-motion :initial="{ x: 20, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 1000 } }" class="flex items-start gap-2 group/item">
+        <span class="text-[#ff5555] group-hover/item:animate-pulse">✗</span>
         <span>设计随功能迭代逐渐过时</span>
       </div>
-      <div class="flex items-start gap-2">
-        <span class="text-[#ff5555]">✗</span>
+      <div v-motion :initial="{ x: 20, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 1100 } }" class="flex items-start gap-2 group/item">
+        <span class="text-[#ff5555] group-hover/item:animate-pulse">✗</span>
         <span>特殊处理导致难以维护</span>
       </div>
     </div>
     
-  <div class="mt-4 pt-4 border-t border-white/10">
-      <div class="text-xs text-[#50fa7b] font-bold mb-2">改进方向</div>
+  <div v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 1200 } }" class="mt-4 pt-4 border-t border-white/10">
+      <div class="text-xs text-[#50fa7b] font-bold mb-2 flex items-center gap-2">
+        <div class="i-carbon-arrow-right animate-pulse"></div>
+        改进方向
+      </div>
       <div class="text-sm text-gray-400 space-y-1">
-        <div class="flex items-center gap-2"><span class="text-[#50fa7b]">1.</span> 整理现有代码问题</div>
-        <div class="flex items-center gap-2"><span class="text-[#50fa7b]">2.</span> 思考解决方案</div>
-        <div class="flex items-center gap-2"><span class="text-[#50fa7b]">3.</span> 提成重构任务逐步处理</div>
+        <div v-motion :initial="{ x: 10, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 1300 } }" class="flex items-center gap-2"><span class="text-[#50fa7b]">1.</span> 整理现有代码问题</div>
+        <div v-motion :initial="{ x: 10, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 1400 } }" class="flex items-center gap-2"><span class="text-[#50fa7b]">2.</span> 思考解决方案</div>
+        <div v-motion :initial="{ x: 10, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 1500 } }" class="flex items-center gap-2"><span class="text-[#50fa7b]">3.</span> 提成重构任务逐步处理</div>
       </div>
     </div>
   </div>
@@ -1303,39 +1422,89 @@ title: 未来规划和展望
 layout: default
 ---
 
-<div class="abs-tl m-10 flex items-center gap-2">
-  <div class="w-3 h-3 rounded-full bg-[#8be9fd] shadow-[0_0_8px_#8be9fd]"></div>
-  <div class="text-[#8be9fd] font-bold tracking-widest uppercase">未来规划和展望</div>
+<style>
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@keyframes rise-up {
+  0% { transform: translateY(100%) scale(0.8); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px currentColor); }
+  50% { filter: drop-shadow(0 0 20px currentColor); }
+}
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.twinkle-star { animation: twinkle 2s ease-in-out infinite; }
+.glow-icon { animation: glow-pulse 2s ease-in-out infinite; }
+.rotate-slow { animation: rotate-slow 20s linear infinite; }
+</style>
+
+<!-- 星空背景 -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <!-- 旋转光环 -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-[#8be9fd]/10 rotate-slow"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-[#bd93f9]/10 rotate-slow" style="animation-direction: reverse; animation-duration: 15s;"></div>
+  
+  <!-- 闪烁星星 -->
+  <div class="absolute top-20 left-[15%] w-1 h-1 bg-[#8be9fd] rounded-full twinkle-star"></div>
+  <div class="absolute top-32 right-[20%] w-1.5 h-1.5 bg-[#50fa7b] rounded-full twinkle-star" style="animation-delay: 0.5s;"></div>
+  <div class="absolute top-48 left-[30%] w-1 h-1 bg-[#bd93f9] rounded-full twinkle-star" style="animation-delay: 1s;"></div>
+  <div class="absolute bottom-32 right-[35%] w-1 h-1 bg-[#ff79c6] rounded-full twinkle-star" style="animation-delay: 1.5s;"></div>
+  <div class="absolute bottom-48 left-[25%] w-1.5 h-1.5 bg-[#ffb86c] rounded-full twinkle-star" style="animation-delay: 0.7s;"></div>
+  <div class="absolute top-60 right-[10%] w-1 h-1 bg-[#8be9fd] rounded-full twinkle-star" style="animation-delay: 1.2s;"></div>
+  <div class="absolute bottom-20 left-[10%] w-1 h-1 bg-[#50fa7b] rounded-full twinkle-star" style="animation-delay: 0.3s;"></div>
+  
+  <!-- 渐变光晕 -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-[#8be9fd]/10 to-transparent rounded-full blur-3xl"></div>
 </div>
 
-<div class="mt-25 grid grid-cols-2 gap-8 px-4">
-  <div v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
-    <div class="flex items-center gap-3 mb-4">
-      <div class="i-carbon-education text-2xl text-[#8be9fd]"></div>
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div v-motion :initial="{ scale: 0, rotate: -180 }" :enter="{ scale: 1, rotate: 0, transition: { type: 'spring', stiffness: 200 } }" class="w-3 h-3 rounded-full bg-[#8be9fd] shadow-[0_0_15px_#8be9fd]"></div>
+  <div v-motion :initial="{ y: -20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="text-[#8be9fd] font-bold tracking-widest uppercase">未来规划和展望</div>
+</div>
+
+<div class="mt-25 grid grid-cols-2 gap-8 px-4 relative z-10">
+  <!-- 左侧卡片 - 从下方升起 -->
+  <div v-motion :initial="{ y: 100, opacity: 0, scale: 0.8 }" :enter="{ y: 0, opacity: 1, scale: 1, transition: { duration: 800, type: 'spring', stiffness: 100 } }" class="relative bg-gradient-to-br from-[#8be9fd]/10 via-white/5 to-transparent rounded-2xl p-6 border border-[#8be9fd]/30 backdrop-blur-sm group hover:border-[#8be9fd]/60 hover:shadow-[0_0_40px_rgba(139,233,253,0.15)] transition-all duration-500 overflow-hidden">
+    <!-- 卡片内光效 -->
+    <div class="absolute top-0 right-0 w-32 h-32 bg-[#8be9fd]/10 rounded-full blur-2xl group-hover:bg-[#8be9fd]/20 transition-all"></div>
+    
+  <div class="flex items-center gap-3 mb-4 relative">
+      <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { delay: 500, type: 'spring', stiffness: 300 } }" class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8be9fd]/30 to-[#8be9fd]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <div class="i-carbon-education text-2xl text-[#8be9fd] glow-icon"></div>
+      </div>
       <h3 class="text-xl font-bold text-[#8be9fd]">增加传道的能力</h3>
     </div>
     
-  <p class="text-sm italic text-gray-300">"形而上者谓之道，形而下者谓之器"</p>
+  <p v-motion :initial="{ opacity: 0, x: -20 }" :enter="{ opacity: 1, x: 0, transition: { delay: 600 } }" class="text-sm italic text-gray-300 mb-3 border-l-2 border-[#8be9fd]/50 pl-3 bg-[#8be9fd]/5 py-2 rounded-r">"形而上者谓之道，形而下者谓之器"</p>
     
   <div class="space-y-2 text-sm text-gray-300 mt-4">
-      <div class="flex items-start gap-2">
+      <div v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 700 } }" class="flex items-start gap-2 group/item hover:translate-x-1 transition-transform">
         <span class="text-[#ff5555]">✗</span>
-        <span>分享多停留在<span class="text-[#ffb86c]">术</span>的层面</span>
+        <span>分享多停留在<span class="text-[#ffb86c] font-semibold">术</span>的层面</span>
       </div>
-      <div class="flex items-start gap-2">
+      <div v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 800 } }" class="flex items-start gap-2 group/item hover:translate-x-1 transition-transform">
         <span class="text-[#ff5555]">✗</span>
         <span>具体技术分享，授人以鱼</span>
       </div>
     </div>
     
-  <div class="mt-4 pt-4 border-t border-white/10">
-      <div class="text-xs text-[#50fa7b] font-bold mb-2">改进方向</div>
-      <div class="text-sm text-gray-400 space-y-1">
-        <div class="flex items-start gap-2">
+  <div v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 900 } }" class="mt-4 pt-4 border-t border-white/10">
+      <div class="text-xs text-[#50fa7b] font-bold mb-2 flex items-center gap-2">
+        <div class="i-carbon-rocket text-sm"></div>
+        改进方向
+      </div>
+      <div class="text-sm text-gray-400">
+        <div v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 1000 } }" class="flex items-start gap-2 p-2 rounded-lg hover:bg-[#50fa7b]/10 transition-colors">
           <span class="text-[#50fa7b]">✓</span>
-          <span>从<span class="text-[#ffb86c]">术</span>到<span class="text-[#8be9fd]">道</span>，分享编码的思想和方法</span>
+          <span>从<span class="text-[#ffb86c] font-semibold">术</span>到<span class="text-[#8be9fd] font-semibold">道</span>，分享编码的思想和方法</span>
         </div>
-        <div class="flex items-start gap-2">
+        <div v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 1100 } }" class="flex items-start gap-2 p-2 rounded-lg hover:bg-[#50fa7b]/10 transition-colors">
           <span class="text-[#50fa7b]">✓</span>
           <span>授人以渔，而非具体技术</span>
         </div>
@@ -1343,35 +1512,44 @@ layout: default
     </div>
   </div>
   
-<div v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
-    <div class="flex items-center gap-3 mb-4">
-      <div class="i-carbon-idea text-2xl text-[#bd93f9]"></div>
+  <!-- 右侧卡片 - 从下方升起，延迟 -->
+  <div v-motion :initial="{ y: 100, opacity: 0, scale: 0.8 }" :enter="{ y: 0, opacity: 1, scale: 1, transition: { duration: 800, delay: 200, type: 'spring', stiffness: 100 } }" class="relative bg-gradient-to-br from-[#bd93f9]/10 via-white/5 to-transparent rounded-2xl p-6 border border-[#bd93f9]/30 backdrop-blur-sm group hover:border-[#bd93f9]/60 hover:shadow-[0_0_40px_rgba(189,147,249,0.15)] transition-all duration-500 overflow-hidden">
+    <!-- 卡片内光效 -->
+    <div class="absolute top-0 right-0 w-32 h-32 bg-[#bd93f9]/10 rounded-full blur-2xl group-hover:bg-[#bd93f9]/20 transition-all"></div>
+    
+  <div class="flex items-center gap-3 mb-4 relative">
+      <div v-motion :initial="{ scale: 0 }" :enter="{ scale: 1, transition: { delay: 700, type: 'spring', stiffness: 300 } }" class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#bd93f9]/30 to-[#bd93f9]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <div class="i-carbon-idea text-2xl text-[#bd93f9] glow-icon" style="animation-delay: 1s;"></div>
+      </div>
       <h3 class="text-xl font-bold text-[#bd93f9]">三思而后行</h3>
     </div>
     
-<p class="text-sm italic text-gray-300">"慢就是顺利，顺利就是快"</p>
+   <p v-motion :initial="{ opacity: 0, x: 20 }" :enter="{ opacity: 1, x: 0, transition: { delay: 800 } }" class="text-sm italic text-gray-300 mb-3 border-l-2 border-[#bd93f9]/50 pl-3 bg-[#bd93f9]/5 py-2 rounded-r">"慢就是顺利，顺利就是快"</p>
     
-<div class="space-y-2 text-sm text-gray-300 mt-4">
-      <div class="flex items-start gap-2">
+  <div class="space-y-2 text-sm text-gray-300 mt-4">
+      <div v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 900 } }" class="flex items-start gap-2 group/item hover:translate-x-1 transition-transform">
         <span class="text-[#ff5555]">✗</span>
         <span>急于开始，未思考清楚</span>
       </div>
-      <div class="flex items-start gap-2">
+      <div v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 1000 } }" class="flex items-start gap-2 group/item hover:translate-x-1 transition-transform">
         <span class="text-[#ff5555]">✗</span>
         <span>执行中发现预期外状况</span>
       </div>
     </div>
     
-  <div class="mt-4 pt-4 border-t border-white/10">
-      <div class="text-xs text-[#50fa7b] font-bold mb-2">改进方向</div>
-      <div class="text-sm text-gray-400 space-y-1">
-        <div class="flex items-start gap-2">
+  <div v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 1100 } }" class="mt-4 pt-4 border-t border-white/10">
+      <div class="text-xs text-[#50fa7b] font-bold mb-2 flex items-center gap-2">
+        <div class="i-carbon-rocket text-sm"></div>
+        改进方向
+      </div>
+      <div class="text-sm text-gray-400">
+        <div v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 1200 } }" class="flex items-start gap-2 p-2 rounded-lg hover:bg-[#50fa7b]/10 transition-colors">
           <span class="text-[#50fa7b]">✓</span>
-          <span>事先多花时间在<span class="text-[#bd93f9]">业务梳理</span>上</span>
+          <span>事先多花时间在<span class="text-[#bd93f9] font-semibold">业务梳理</span>上</span>
         </div>
-        <div class="flex items-start gap-2">
+        <div v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 1300 } }" class="flex items-start gap-2 p-2 rounded-lg hover:bg-[#50fa7b]/10 transition-colors">
           <span class="text-[#50fa7b]">✓</span>
-          <span>看似慢，实则<span class="text-[#50fa7b]">更快</span></span>
+          <span>看似慢，实则<span class="text-[#50fa7b] font-semibold">更快</span></span>
         </div>
       </div>
     </div>
