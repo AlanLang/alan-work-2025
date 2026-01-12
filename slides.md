@@ -57,6 +57,7 @@ duration: 35min
 -->
 
 ---
+title: 软件开发中的熵
 transition: fade-out
 layout: center
 class: text-center
@@ -169,6 +170,55 @@ title: 能够解决熵减的三个方向
 </div>
 
 ---
+title: 新预览重构
+layout: center
+class: text-center
+---
+# 新预览重构
+
+---
+title: 多 packages 拆分
+layout: center
+---
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#ffb86c] shadow-[0_0_8px_#ffb86c]"></div>
+  <div class="text-[#ffb86c] font-bold tracking-widest uppercase">减少技术复杂度 (D)：多 packages 拆分</div>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-6">
+````md magic-move
+```sh
+├── packages
+│   ├── duchamp-build               # 打包相关代码, 包含各个自定义vite插件的实现
+│   ├── duchamp-calculte            # 计算中心
+│   ├── duchamp-editor              # 编辑器主体代码
+│   └── duchamp-template-load       # 模板加载相关代码
+├── package.json
+└── README.md
+```
+```sh
+├── packages
+│   ├── duchamp-ai                  # AI 输入框入口
+│   ├── duchamp-build               # 打包相关代码, 包含各个自定义vite插件的实现
+│   ├── duchamp-calculte            # 计算中心
+│   ├── duchamp-compatibility       # 兼容处理
+│   ├── duchamp-components          # 基础组件
+│   ├── duchamp-core                # 核心代码
+│   ├── duchamp-editor              # 旧编辑器主体代码
+│   ├── duchamp-graph               # 画布
+│   ├── duchamp-plugin              # 插件 SDK
+│   ├── duchamp-preview             # 预览模式
+│   ├── duchamp-resource            # 资源处理
+│   ├── duchamp-studio              # 编辑模式
+│   ├── duchamp-template-load       # 模板加载相关代码
+│   ├── duchamp-utils.              # 底层工具
+│   └── duchamp-widgets             # 组件层代码
+├── package.json
+└── README.md
+```
+````
+</div>
+
+---
 title: 组件基于 meta 的底层设计
 layout: center
 class: text-center
@@ -185,10 +235,58 @@ class: text-center
       <p class="text-2xl leading-relaxed font-light italic text-gray-200">
         “由 <span class="text-[#ffb86c] font-medium">Meta</span> 指导基于 <span class="font-mono text-blue-400">TS 类型约束</span> 的组件底层架构设计”
       </p>
-      <div class="w-16 h-1 bg-gradient-to-r from-transparent via-[#ffb86c] to-transparent opacity-50"></div>
     </div>
   </div>
 </div>
+
+---
+title: 组件基于 meta 的底层设计(前端公式)
+layout: center
+class: text-center
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#ffb86c] shadow-[0_0_8px_#ffb86c]"></div>
+  <div class="text-[#ffb86c] font-bold tracking-widest uppercase">减少技术复杂度 (D)：组件基于 meta 的底层设计与 handler 的扩展设计</div>
+</div>
+<div class="flex flex-col items-center gap-6 text-4xl" style="--slidev-code-font-size: 50px; --slidev-code-line-height: 70px;">
+````md magic-move
+```js
+v=f(s)
+```
+```js
+v=f(t(meta))
+```
+```js
+Widget=View(t(meta))
+```
+```js
+Widget=View(t(meta, handler))
+```
+````
+</div>
+
+---
+title: Meta 的类型约束
+layout: two-cols
+---
+```ts {monaco}
+import { WidgetMeta } from "@/snippets/meta.ts"
+const titleMeta = {
+  id: "d-text-title",
+  name: "Duchamp-Title",
+  version: "0.0.2",
+  configurations: {
+    style: {
+      type: "style",
+      defaultValue: {
+        fontSize: 16,
+        fontWeight: "bold",
+      },
+    },
+  },
+} satisfies WidgetMeta;
+```
 
 ---
 layout: image-right

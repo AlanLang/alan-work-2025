@@ -1,0 +1,6 @@
+.slidev-code {
+  --slidev-code-font-size: 1em;
+  --slidev-code-line-height: inherit;
+  font-size: var(--slidev-code-font-size) !important;
+  line-height: var(--slidev-code-line-height) !important;
+}
