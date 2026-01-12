@@ -79,22 +79,22 @@ class: text-center
   </h1>
   <p class="text-base opacity-80 mb-6 max-w-3xl px-4 line-tight">熵代表系统的混乱、复杂、不确定性和不可控程度。随着系统演进，熵往往不可避免地增加。</p>
   <div class="grid grid-cols-2 gap-4 w-full max-w-3xl scale-95 origin-top">
-    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+    <div v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 300 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
       <div class="i-carbon-code text-3xl mb-2 text-blue-400 group-hover:scale-110 transition-transform" />
       <h3 class="text-lg font-bold mb-1">可读性下降</h3>
       <p class="text-xs opacity-60">代码逻辑破碎、耦合度上升，维护成本指数增加</p>
     </div>
-    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+    <div v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 500 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
       <div class="i-carbon-document-blank text-3xl mb-2 text-emerald-400 group-hover:scale-110 transition-transform" />
       <h3 class="text-lg font-bold mb-1">文档滞后</h3>
       <p class="text-xs opacity-60">文档与代码脱节，失去指导价值，增加认知负荷</p>
     </div>
-    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+    <div v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 700 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
       <div class="i-carbon-debug text-3xl mb-2 text-amber-400 group-hover:scale-110 transition-transform" />
       <h3 class="text-lg font-bold mb-1">测试失效</h3>
       <p class="text-xs opacity-60">覆盖率下降，旧功能频繁回退，bug 修复后重现</p>
     </div>
-    <div v-click v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
+    <div v-motion :initial="{ scale: 0.9, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 900 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm group hover:bg-white/10 transition-all text-center">
       <div class="i-carbon-flash text-3xl mb-2 text-rose-400 group-hover:scale-110 transition-transform" />
       <h3 class="text-lg font-bold mb-1">架构僵化</h3>
       <p class="text-xs opacity-60">底层堆砌，牵一发而动全身，难以应对业务变化</p>
@@ -103,7 +103,11 @@ class: text-center
 </div>
 
 <!--
-Here is another comment.
+而软件开发中的熵则代表系统的混乱、复杂、不确定性和不可控程度。随着系统演进，熵往往不可避免地增加。
+
+最终导致：代码可读性下降，文档与代码脱节滞后，测试覆盖率降低，自动化测试失败。架构僵化，牵一发而动全身。
+
+导致代码要么不敢改，要么很容易改出其他bug。
 -->
 
 ---
@@ -178,6 +182,28 @@ title: 能够解决熵减的三个方向
     </div>
   </div>
 </div>
+
+<!--
+而对于我们开发同学来说，可以从这三个层面来实现减熵。
+
+比如：通过标准化、组件化与持续重构，降低系统熵增速率
+
+比如：建设高效的基建平台、自动化测试与 CI/CD 流程
+
+再比如：推行敏捷、持续交付与沉淀良好的工程文化
+-->
+
+
+---
+title: 反熵增是每一个优秀的程序员都该做的事情
+layout: center
+class: text-center
+---
+# 反熵增是每一个优秀的程序员都该做的事情
+
+<!--
+所以，反熵增是每一个优秀的程序员都该做的事情
+-->
 
 ---
 title: 新预览重构
