@@ -413,12 +413,100 @@ clicks: 1
 ---
 title: 严格的 lint 检查
 layout: center
+clicks: 1
 ---
 <div class="abs-tl m-10 flex items-center gap-2">
   <div class="w-3 h-3 rounded-full bg-[#bd93f9] shadow-[0_0_8px_#bd93f9]"></div>
   <div class="text-[#bd93f9] font-bold tracking-widest uppercase">提升工具减熵因子 (T)：严格的 lint 检查</div>
 </div>
 
+<div class="w-full max-w-5xl mx-auto mt-12">
+  <div class="grid grid-cols-3 gap-4">
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 0 } }" class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="i-carbon-plug text-2xl text-[#8be9fd]"></div>
+        <span class="font-bold text-[#8be9fd]">12+ 插件集成</span>
+      </div>
+      <div class="text-xs text-gray-400 space-y-1">
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> typescript-eslint (strict)</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> eslint-plugin-react-hooks</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> eslint-plugin-react-refresh</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> eslint-plugin-import-x</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> eslint-plugin-unused-imports</div>
+      </div>
+    </div>
+    
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 100 } }" class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="i-carbon-code text-2xl text-[#ff79c6]"></div>
+        <span class="font-bold text-[#ff79c6]">TypeScript 严格模式</span>
+      </div>
+      <div class="text-xs text-gray-400 space-y-1">
+        <div class="flex items-center gap-1"><span class="text-[#ff5555]">✗</span> 禁止使用 enum</div>
+        <div class="flex items-center gap-1"><span class="text-[#ff5555]">✗</span> 禁止使用 any</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 一致的类型导入/导出</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 必须显式成员访问性</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 无不必要条件检查</div>
+      </div>
+    </div>
+    
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 200 } }" class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="i-carbon-logo-react text-2xl text-[#61dafb]"></div>
+        <span class="font-bold text-[#61dafb]">React 规范</span>
+      </div>
+      <div class="text-xs text-gray-400 space-y-1">
+        <div class="flex items-center gap-1"><span class="text-[#ff5555]">✗</span> 禁止 React.xxx 形式</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> exhaustive-deps 强制</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> fast-refresh 兼容检查</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 条件渲染泄漏检测</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 自闭合组件强制</div>
+      </div>
+    </div>
+    
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="i-carbon-data-share text-2xl text-[#ffb86c]"></div>
+        <span class="font-bold text-[#ffb86c]">导入规范</span>
+      </div>
+      <div class="text-xs text-gray-400 space-y-1">
+        <div class="flex items-center gap-1"><span class="text-[#ff5555]">✗</span> 禁止相对路径跨包引入</div>
+        <div class="flex items-center gap-1"><span class="text-[#ff5555]">✗</span> 禁止使用 lodash</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 导入自动排序 (A-Z)</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 未使用导入自动移除</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 禁止重复导入</div>
+      </div>
+    </div>
+    
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 400 } }" class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="i-carbon-folder-details text-2xl text-[#f1fa8c]"></div>
+        <span class="font-bold text-[#f1fa8c]">文件结构约束</span>
+      </div>
+      <div class="text-xs text-gray-400 space-y-1">
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> index.ts 仅允许导入导出</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> constant.ts 禁止定义函数</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> widgets 路径层级限制</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> mobile/desktop 分离</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 禁止默认导出</div>
+      </div>
+    </div>
+    
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 500 } }" class="p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="i-carbon-chat text-2xl text-[#bd93f9]"></div>
+        <span class="font-bold text-[#bd93f9]">注释与测试</span>
+      </div>
+      <div class="text-xs text-gray-400 space-y-1">
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> eslint-disable 必须说明</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 未使用禁用指令报错</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> vitest 规则集成</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> 注释格式标准化</div>
+        <div class="flex items-center gap-1"><span class="text-[#50fa7b]">✓</span> Prettier 自动格式化</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 layout: image-right
