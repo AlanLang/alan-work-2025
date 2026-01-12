@@ -599,7 +599,393 @@ clicks: 1
 
 ---
 title: 新预览重构性能提升
+layout: center
+class: text-center
 ---
+
+# 新预览重构性能提升
+
+---
+title: 简单模板性能提升
+clicks: 1
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#50fa7b] shadow-[0_0_8px_#50fa7b]"></div>
+  <div class="text-[#50fa7b] font-bold tracking-widest uppercase">性能提升：简单模板加载耗时对比</div>
+</div>
+
+<div class="w-full max-w-4xl mx-auto mt-8">
+  <div v-click="1" class="grid grid-cols-12 gap-2 text-center text-xs font-bold mb-3 px-2 opacity-60">
+    <div class="col-span-4 text-left">模板名称</div>
+    <div class="col-span-6">加载耗时对比</div>
+    <div class="col-span-2">提升</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 0 } }" class="grid grid-cols-12 gap-2 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">tab场景</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">1.93s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 80%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 43%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">3.59s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 46%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 80 } }" class="grid grid-cols-12 gap-2 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">复杂指标卡</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">0.58s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 32%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 13%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">1.45s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 60%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 160 } }" class="grid grid-cols-12 gap-2 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">明细表格_200数据量</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">2.04s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 71%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 46%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">3.18s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 36%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 240 } }" class="grid grid-cols-12 gap-2 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">多控件联动查询</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">1.72s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 53%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 38%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">2.36s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 27%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 320 } }" class="grid grid-cols-12 gap-2 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">移动端综合模板</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">0.47s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 37%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 10%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">1.65s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 71%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 400 } }" class="grid grid-cols-12 gap-2 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm truncate" title="多控件联动查询_带扩展图表">多控件联动_扩展图表</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">2.00s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 80%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 44%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">3.60s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 44%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 480 } }" class="grid grid-cols-12 gap-2 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm truncate" title="tab场景_带扩展图表">tab场景_扩展图表</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">2.71s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 100%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 61%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">4.47s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 39%</div>
+  </div>
+
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 600 } }" class="mt-4 flex items-center justify-center gap-6 text-xs">
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd]"></div>
+      <span class="text-gray-300">新预览</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] opacity-50"></div>
+      <span class="text-gray-300">旧预览</span>
+    </div>
+    <div class="px-3 py-1 bg-[#50fa7b]/20 rounded-full border border-[#50fa7b]/30">
+      <span class="text-[#50fa7b] font-bold">平均提升 46%</span>
+    </div>
+  </div>
+</div>
+
+---
+title: 复杂模板性能提升
+clicks: 1
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#50fa7b] shadow-[0_0_8px_#50fa7b]"></div>
+  <div class="text-[#50fa7b] font-bold tracking-widest uppercase">性能提升：复杂模板加载耗时对比（N×M = 每页N组件 × M页）</div>
+</div>
+
+<div class="w-full max-w-4xl mx-auto mt-16">
+  <div v-click="1" class="grid grid-cols-12 gap-2 text-center text-xs font-bold mb-3 px-2 opacity-60">
+    <div class="col-span-4 text-left">模板规格</div>
+    <div class="col-span-6">加载耗时对比</div>
+    <div class="col-span-2">提升</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 0 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">90×1</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">7.56s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 12%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 9%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">9.52s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 21%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 60 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">90×5</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">8.10s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 13%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 10%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">10.38s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 22%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 120 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">90×20</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">9.08s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 15%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 11%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">12.03s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 25%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 180 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">90×50</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">12.10s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 18%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 15%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">14.51s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 17%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 240 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">150×1</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">7.78s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 12%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 10%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">9.65s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 19%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 300 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">150×5</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">7.81s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 13%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 10%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">10.61s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 26%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 360 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">150×20</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">8.56s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 40%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 11%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">32.16s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 73%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 420 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">150×50</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-14">9.85s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 99%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 12%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-14 text-right">78.88s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 88%</div>
+  </div>
+
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 500 } }" class="mt-3 flex items-center justify-center gap-6 text-xs">
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd]"></div>
+      <span class="text-gray-300">新预览</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] opacity-50"></div>
+      <span class="text-gray-300">旧预览</span>
+    </div>
+    <div class="px-3 py-1 bg-[#50fa7b]/20 rounded-full border border-[#50fa7b]/30">
+      <span class="text-[#50fa7b] font-bold">最高提升 88%</span>
+    </div>
+  </div>
+</div>
+
+---
+title: 客户 bug 性能提升
+clicks: 1
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#50fa7b] shadow-[0_0_8px_#50fa7b]"></div>
+  <div class="text-[#50fa7b] font-bold tracking-widest uppercase">性能提升：客户 bug 场景加载耗时对比</div>
+</div>
+
+<div class="w-full max-w-4xl mx-auto mt-18">
+  <div v-click="1" class="grid grid-cols-12 gap-2 text-center text-xs font-bold mb-3 px-2 opacity-60">
+    <div class="col-span-4 text-left">客户场景</div>
+    <div class="col-span-6">加载耗时对比</div>
+    <div class="col-span-2">提升</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 0 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm truncate" title="湖南大学2023年个人年度报告">湖南大学年度报告</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">0.41s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 16%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 4%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">1.57s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 74%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 60 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm truncate" title="财务决策支撑系统-内置数据集">财务决策支撑系统</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">0.53s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 23%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 5%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">2.25s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 76%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 120 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">生产调度中心</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">1.24s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 25%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 12%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">2.47s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 50%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 180 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">OGCIO DASHBOARD_V9</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">2.13s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 34%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 21%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">3.41s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 38%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 240 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">整体运营态势无数据</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">2.28s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 34%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 23%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">3.39s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 33%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 300 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">数字化服务指挥中心</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">5.83s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 97%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 58%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">9.73s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 40%</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 360 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
+    <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm">125427-预览慢</div>
+    <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">3.39s</span>
+      <div class="flex-1 relative h-5">
+        <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 72%"></div></div>
+        <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 34%"></div></div>
+      </div>
+      <span class="text-xs text-gray-400 w-12 text-right">7.17s</span>
+    </div>
+    <div class="col-span-2 text-[#50fa7b] font-bold text-sm">↓ 53%</div>
+  </div>
+
+  <div v-click="1" v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 450 } }" class="mt-3 flex items-center justify-center gap-6 text-xs">
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd]"></div>
+      <span class="text-gray-300">新预览</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] opacity-50"></div>
+      <span class="text-gray-300">旧预览</span>
+    </div>
+    <div class="px-3 py-1 bg-[#50fa7b]/20 rounded-full border border-[#50fa7b]/30">
+      <span class="text-[#50fa7b] font-bold">最高提升 76%</span>
+    </div>
+  </div>
+</div>
 
 ---
 layout: image-right
