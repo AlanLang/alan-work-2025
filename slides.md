@@ -268,10 +268,16 @@ Widget=View(t(meta, handler))
 
 ---
 title: Meta 的类型约束
-layout: two-cols
+layout: default
 ---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#ffb86c] shadow-[0_0_8px_#ffb86c]"></div>
+  <div class="text-[#ffb86c] font-bold tracking-widest uppercase">减少技术复杂度 (D)：组件基于 meta 的底层设计与 handler 的扩展设计</div>
+</div>
+<div class="mt-16">
 ```ts {monaco}
-import { WidgetMeta } from "@/snippets/meta.ts"
+import { WidgetMeta, ReactWidget } from "./meta"
 const titleMeta = {
   id: "d-text-title",
   name: "Duchamp-Title",
@@ -286,7 +292,133 @@ const titleMeta = {
     },
   },
 } satisfies WidgetMeta;
+
+
+const Title: ReactWidget<typeof titleMeta> = (props) => {
+  // 可以使用 style 属性
+  return props.style.fontSize;
+}
 ```
+</div>
+
+---
+title: JS API 的三层结构设计
+layout: center
+class: text-center
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#ffb86c] shadow-[0_0_8px_#ffb86c]"></div>
+  <div class="text-[#ffb86c] font-bold tracking-widest uppercase">减少技术复杂度 (D)：JS API 的三层结构设计</div>
+</div>
+
+<div class="flex flex-col text-left">
+
+* 通用层（组件隐藏/显示）
+
+* 配置面板层（跑马灯开启/关闭）
+
+* 视图层（表格：设置单元格颜色）
+</div>
+
+---
+title: 单元测试覆盖率
+layout: center
+clicks: 1
+---
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#bd93f9] shadow-[0_0_8px_#bd93f9]"></div>
+  <div class="text-[#bd93f9] font-bold tracking-widest uppercase">提升工具减熵因子 (T)：单元测试覆盖率 100%</div>
+</div>
+
+<div class="w-full max-w-4xl mx-auto mt-12">
+  <div v-click="1" class="grid grid-cols-7 gap-1 text-center text-xs font-bold mb-2 px-2 opacity-60">
+    <div class="col-span-2 text-left">包名</div>
+    <div>测试文件</div>
+    <div>测试用例</div>
+    <div class="col-span-3">覆盖率</div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 0 } }" class="grid grid-cols-7 gap-1 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all group">
+    <div class="col-span-2 font-mono text-[#bd93f9] font-semibold text-left">duchamp-core</div>
+    <div class="text-center text-gray-300">97</div>
+    <div class="text-center text-gray-300">877</div>
+    <div class="col-span-3 flex items-center gap-2">
+      <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#bd93f9] to-[#ff79c6] rounded-full" style="width: 100%"></div></div>
+      <span class="text-[#50fa7b] font-bold text-xs w-12">100%</span>
+    </div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 100 } }" class="grid grid-cols-7 gap-1 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all group">
+    <div class="col-span-2 font-mono text-[#bd93f9] font-semibold text-left">duchamp-widgets</div>
+    <div class="text-center text-gray-300">90</div>
+    <div class="text-center text-gray-300">646</div>
+    <div class="col-span-3 flex items-center gap-2">
+      <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#bd93f9] to-[#ff79c6] rounded-full" style="width: 100%"></div></div>
+      <span class="text-[#50fa7b] font-bold text-xs w-12">100%</span>
+    </div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 200 } }" class="grid grid-cols-7 gap-1 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all group">
+    <div class="col-span-2 font-mono text-[#bd93f9] font-semibold text-left">duchamp-graph</div>
+    <div class="text-center text-gray-300">47</div>
+    <div class="text-center text-gray-300">415</div>
+    <div class="col-span-3 flex items-center gap-2">
+      <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#bd93f9] to-[#ff79c6] rounded-full" style="width: 100%"></div></div>
+      <span class="text-[#50fa7b] font-bold text-xs w-12">100%</span>
+    </div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 300 } }" class="grid grid-cols-7 gap-1 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all group">
+    <div class="col-span-2 font-mono text-[#bd93f9] font-semibold text-left">duchamp-preview</div>
+    <div class="text-center text-gray-300">56</div>
+    <div class="text-center text-gray-300">363</div>
+    <div class="col-span-3 flex items-center gap-2">
+      <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#bd93f9] to-[#ff79c6] rounded-full" style="width: 100%"></div></div>
+      <span class="text-[#50fa7b] font-bold text-xs w-12">100%</span>
+    </div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 400 } }" class="grid grid-cols-7 gap-1 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all group">
+    <div class="col-span-2 font-mono text-[#bd93f9] font-semibold text-left">duchamp-utils</div>
+    <div class="text-center text-gray-300">19</div>
+    <div class="text-center text-gray-300">216</div>
+    <div class="col-span-3 flex items-center gap-2">
+      <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#bd93f9] to-[#ff79c6] rounded-full" style="width: 100%"></div></div>
+      <span class="text-[#50fa7b] font-bold text-xs w-12">100%</span>
+    </div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 500 } }" class="grid grid-cols-7 gap-1 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all group">
+    <div class="col-span-2 font-mono text-[#bd93f9] font-semibold text-left">duchamp-components</div>
+    <div class="text-center text-gray-300">9</div>
+    <div class="text-center text-gray-300">51</div>
+    <div class="col-span-3 flex items-center gap-2">
+      <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#bd93f9] to-[#ff79c6] rounded-full" style="width: 100%"></div></div>
+      <span class="text-[#50fa7b] font-bold text-xs w-12">100%</span>
+    </div>
+  </div>
+  
+  <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 600 } }" class="grid grid-cols-7 gap-1 items-center p-3 bg-white/5 rounded-lg mb-2 border border-white/10 hover:bg-white/10 transition-all group">
+    <div class="col-span-2 font-mono text-[#bd93f9] font-semibold text-left">duchamp-compatibility</div>
+    <div class="text-center text-gray-300">3</div>
+    <div class="text-center text-gray-300">23</div>
+    <div class="col-span-3 flex items-center gap-2">
+      <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#bd93f9] to-[#ff79c6] rounded-full" style="width: 100%"></div></div>
+      <span class="text-[#50fa7b] font-bold text-xs w-12">100%</span>
+    </div>
+  </div>
+</div>
+
+---
+title: 严格的 lint 检查
+layout: center
+---
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#bd93f9] shadow-[0_0_8px_#bd93f9]"></div>
+  <div class="text-[#bd93f9] font-bold tracking-widest uppercase">提升工具减熵因子 (T)：严格的 lint 检查</div>
+</div>
+
 
 ---
 layout: image-right
