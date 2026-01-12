@@ -509,6 +509,99 @@ clicks: 1
 </div>
 
 ---
+title: 技术分享
+clicks: 1
+---
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div class="w-3 h-3 rounded-full bg-[#ff5555] shadow-[0_0_8px_#ff5555]"></div>
+  <div class="text-[#ff5555] font-bold tracking-widest uppercase">优化开发模式成熟度 (P)：技术分享</div>
+</div>
+
+<div class="w-full max-w-6xl mx-auto mt-30 flex gap-10 items-center">
+  <!-- 左侧：大数字统计 -->
+  <div class="flex flex-col items-center justify-center min-w-48">
+    <div v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { duration: 600, type: 'spring' } }" class="text-8xl font-black bg-gradient-to-br from-[#ff5555] via-[#ff79c6] to-[#bd93f9] bg-clip-text text-transparent">
+      26
+    </div>
+    <div class="text-gray-400 text-sm mt-2">次技术分享</div>
+    <div v-click="1" v-motion :initial="{ y: 10, opacity: 0 }" :enter="{ y: 0, opacity: 1 }" class="mt-4 px-4 py-2 bg-white/5 rounded-full border border-white/10 text-xs text-gray-300 flex gap-2">
+      <div>📅</div>
+      平均每两周一次
+    </div>
+  </div>
+  
+  <!-- 右侧：分享类型分布 -->
+  <div class="flex-1 space-y-3">
+    <div v-click="1" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 0 } }" class="flex items-center gap-3">
+      <div class="w-28 text-sm text-gray-300 text-right">工作内容分享</div>
+      <div class="flex-1 h-6 bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full flex items-center justify-end pr-2" style="width: 100%">
+          <span class="text-xs font-bold text-white">13</span>
+        </div>
+      </div>
+    </div>
+    <div v-click="1" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 80 } }" class="flex items-center gap-3">
+      <div class="w-28 text-sm text-gray-300 text-right">Live Coding</div>
+      <div class="flex-1 h-6 bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full flex items-center justify-end pr-2" style="width: 38.5%">
+          <span class="text-xs font-bold text-white">5</span>
+        </div>
+      </div>
+    </div>
+
+  <div v-click="1" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 160 } }" class="flex items-center gap-3">
+      <div class="w-28 text-sm text-gray-300 text-right">React</div>
+      <div class="flex-1 h-6 bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-[#61dafb] to-[#bd93f9] rounded-full flex items-center justify-end pr-2" style="width: 23%">
+          <span class="text-xs font-bold text-white">3</span>
+        </div>
+      </div>
+    </div>
+
+  <div v-click="1" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 240 } }" class="flex items-center gap-3">
+      <div class="w-28 text-sm text-gray-300 text-right">Git</div>
+      <div class="flex-1 h-6 bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-[#f14e32] to-[#ffb86c] rounded-full flex items-center justify-end pr-2" style="width: 15.4%">
+          <span class="text-xs font-bold text-white">2</span>
+        </div>
+      </div>
+    </div>
+
+  <div v-click="1" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 320 } }" class="flex items-center gap-3">
+      <div class="w-28 text-sm text-gray-300 text-right">TypeScript</div>
+      <div class="flex-1 h-6 bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-[#3178c6] to-[#8be9fd] rounded-full flex items-center justify-end pr-2" style="width: 7.7%">
+          <span class="text-xs font-bold text-white">1</span>
+        </div>
+      </div>
+    </div>
+
+  <div v-click="1" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 400 } }" class="flex items-center gap-3">
+      <div class="w-28 text-sm text-gray-300 text-right">CSS</div>
+      <div class="flex-1 h-6 bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-[#264de4] to-[#ff79c6] rounded-full flex items-center justify-end pr-2" style="width: 7.7%">
+          <span class="text-xs font-bold text-white">1</span>
+        </div>
+      </div>
+    </div>
+
+  <div v-click="1" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 480 } }" class="flex items-center gap-3">
+      <div class="w-28 text-sm text-gray-300 text-right">AI Agent</div>
+      <div class="flex-1 h-6 bg-white/5 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-[#a855f7] to-[#ec4899] rounded-full flex items-center justify-end pr-2" style="width: 7.7%">
+          <span class="text-xs font-bold text-white">1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+title: 新预览重构性能提升
+---
+
+---
 layout: image-right
 image: https://cover.sli.dev
 ---
