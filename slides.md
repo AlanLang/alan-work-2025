@@ -21,27 +21,37 @@ mdc: true
 duration: 35min
 ---
 
-<div class="center">
-  	<h1 class="font-extrabold" style="line-height: 2rem !important;">减熵</h1>
-  	<h3 class="font-300" style="opacity: 1;font-size: 12px">帆软软件有限公司 2025 年年度个人复盘</h3>
+<div class="absolute inset-0 overflow-hidden">
+  <div class="absolute top-20 left-20 w-64 h-64 bg-[#bd93f9]/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-20 right-20 w-80 h-80 bg-[#50fa7b]/10 rounded-full blur-3xl"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#8be9fd]/5 rounded-full blur-3xl"></div>
 </div>
 
-<div class="abs-bl ml-14 mb-12 flex items-center" >
-	<img src="https://cdn.sa.net/2025/01/23/Q7RM4B6Yeo1l92m.jpg" class="size-40px br-50p object-cover-top no-decoration rounded-full">
-	<div class="ml-3 flex flex-col text-left">
-		<span class="text-2xl font-500">Alan</span>
-		<span class="fs-10px">alan@fanruan.com</span>
-	</div>
+<div class="relative z-10 flex flex-col items-center justify-center h-full">
+  <div v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { duration: 800 } }" class="text-center">
+    <h1 class="text-8xl font-black mb-4 !text-transparent bg-clip-text bg-gradient-to-r from-[#50fa7b] via-[#8be9fd] to-[#bd93f9]">减熵</h1>
+    <div class="flex items-center justify-center gap-2 mb-6">
+      <div class="h-px w-12 bg-gradient-to-r from-transparent to-[#8be9fd]"></div>
+      <span class="text-sm text-gray-400 tracking-widest">REDUCE ENTROPY</span>
+      <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#8be9fd]"></div>
+    </div>
+    <p v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="text-lg text-gray-300">帆软软件有限公司 · 2025 年年度个人复盘</p>
+  </div>
 </div>
 
-<div class="abs-br mr-6 mb-12">
-    <span
-      @click="$slidev.nav.next"
-      class="arrow-container cursor-pointer text-white"
-      hover="bg-altBlue bg-opacity-75 text-white"
-    >
-      <carbon:chevron-right class="inline" />
-    </span>
+<div class="abs-bl ml-14 mb-12 flex items-center" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 600 } }">
+  <img src="https://cdn.sa.net/2025/01/23/Q7RM4B6Yeo1l92m.jpg" class="size-12 object-cover rounded-full border-2 border-[#8be9fd]/50">
+  <div class="ml-3 flex flex-col text-left">
+    <span class="text-xl font-bold text-white">Alan</span>
+    <span class="text-xs text-gray-400">alan@fanruan.com</span>
+  </div>
+</div>
+
+<div class="abs-br mr-6 mb-12" v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 600 } }">
+  <span @click="$slidev.nav.next" class="px-4 py-2 rounded-full bg-white/10 border border-white/20 cursor-pointer text-white text-sm flex items-center gap-2 hover:bg-white/20 transition-all">
+    开始
+    <carbon:chevron-right class="inline" />
+  </span>
 </div>
 
 <!--
@@ -1150,9 +1160,9 @@ layout: default
       <h3 class="text-xl font-bold text-[#bd93f9]">三思而后行</h3>
     </div>
     
-  <p class="text-sm italic text-gray-300">"慢就是顺利，顺利就是快"</p>
+<p class="text-sm italic text-gray-300">"慢就是顺利，顺利就是快"</p>
     
-  <div class="space-y-2 text-sm text-gray-300 mt-4">
+<div class="space-y-2 text-sm text-gray-300 mt-4">
       <div class="flex items-start gap-2">
         <span class="text-[#ff5555]">✗</span>
         <span>急于开始，未思考清楚</span>
@@ -1179,3 +1189,46 @@ layout: default
   </div>
 </div>
 
+---
+title: 致谢
+layout: cover
+class: bg-blend-overlay bg-black65
+---
+
+<div class="absolute inset-0 overflow-hidden">
+  <div class="absolute top-20 left-20 w-64 h-64 bg-[#bd93f9]/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-20 right-20 w-80 h-80 bg-[#50fa7b]/10 rounded-full blur-3xl"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#8be9fd]/5 rounded-full blur-3xl"></div>
+</div>
+
+<div class="relative z-10 flex flex-col items-center justify-center h-full">
+  <div v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { duration: 800 } }" class="text-center mb-8">
+    <h1 class="text-6xl font-black mb-4 !text-transparent bg-clip-text bg-gradient-to-r from-[#50fa7b] via-[#8be9fd] to-[#bd93f9]">感谢观看</h1>
+    <div class="flex items-center justify-center gap-2">
+      <div class="h-px w-12 bg-gradient-to-r from-transparent to-[#8be9fd]"></div>
+      <span class="text-sm text-gray-400 tracking-widest">THANKS</span>
+      <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#8be9fd]"></div>
+    </div>
+  </div>
+  
+  <div v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 400 } }" class="max-w-lg bg-white/5 rounded-2xl p-8 px-18 border border-white/10 backdrop-blur-sm">
+    <div class="text-center gap-2">
+      <p class="text-xl text-gray-200 leading-relaxed font-serif">时来岁终莫彷徨，</p>
+      <p class="text-xl text-[#bd93f9] leading-relaxed font-serif">蓄力前行路更长。</p>
+      <p class="text-xl text-[#ffb86c] leading-relaxed font-serif">只盼大屏编辑器，</p>
+      <p class="text-xl text-[#50fa7b] leading-relaxed font-serif">一年更比一年强。</p>
+    </div>
+  </div>
+  
+  <p v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 1400 } }" class="mt-8 text-gray-400 text-sm">
+    2025 年年度个人复盘 · 完
+  </p>
+</div>
+
+<div class="abs-bl ml-14 mb-12 flex items-center" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 600 } }">
+  <img src="https://cdn.sa.net/2025/01/23/Q7RM4B6Yeo1l92m.jpg" class="size-12 object-cover rounded-full border-2 border-[#8be9fd]/50">
+  <div class="ml-3 flex flex-col text-left">
+    <span class="text-xl font-bold text-white">Alan</span>
+    <span class="text-xs text-gray-400">alan@fanruan.com</span>
+  </div>
+</div>
