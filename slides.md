@@ -199,7 +199,33 @@ title: 反熵增是每一个优秀的程序员都该做的事情
 layout: center
 class: text-center
 ---
-# 反熵增是每一个优秀的程序员都该做的事情
+
+<div class="relative">
+  <!-- 背景装饰 -->
+  <div class="absolute -top-20 -left-40 w-80 h-80 bg-[#50fa7b]/10 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-20 -right-40 w-80 h-80 bg-[#bd93f9]/10 rounded-full blur-3xl"></div>
+  
+  <div class="flex flex-col items-center gap-8">
+    <!-- 图标 -->
+    <div v-motion :initial="{ scale: 0, rotate: -180 }" :enter="{ scale: 1, rotate: 0, transition: { duration: 800, type: 'spring' } }" class="w-24 h-24 rounded-full bg-gradient-to-br from-[#50fa7b] to-[#8be9fd] flex items-center justify-center shadow-[0_0_40px_rgba(80,250,123,0.4)]">
+      <div class="i-carbon-clean text-5xl text-black/80"></div>
+    </div>
+    
+  <h1 v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="text-4xl font-black !text-transparent bg-clip-text bg-gradient-to-r from-[#50fa7b] via-[#8be9fd] to-[#bd93f9]">
+      反熵增
+    </h1>
+    
+  <p v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 500 } }" class="text-2xl text-gray-300 font-medium">
+      是每一个优秀的程序员都该做的事情
+    </p>
+    
+  <div v-motion :initial="{ scaleX: 0 }" :enter="{ scaleX: 1, transition: { delay: 700, duration: 600 } }" class="w-40 h-1 bg-gradient-to-r from-transparent via-[#50fa7b] to-transparent rounded-full"></div>
+    
+  <p v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1, transition: { delay: 900 } }" class="text-sm text-gray-500 italic max-w-md">
+      "对抗混乱，追求秩序，是工程师的本能"
+    </p>
+  </div>
+</div>
 
 <!--
 所以，反熵增是每一个优秀的程序员都该做的事情
@@ -210,7 +236,43 @@ title: 新预览重构
 layout: center
 class: text-center
 ---
-# 新预览重构
+
+<div class="relative">
+  <!-- 背景装饰 -->
+  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#8be9fd]/8 rounded-full blur-3xl"></div>
+  
+  <div class="flex flex-col items-center gap-6">
+    <!-- 上方标签 -->
+    <div v-motion :initial="{ y: -20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 0 } }" class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+      <div class="w-2 h-2 rounded-full bg-[#50fa7b] animate-pulse"></div>
+      <span class="text-sm text-gray-400 tracking-wider">2025 年度重点项目</span>
+    </div>
+    
+  <h1 v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { delay: 200, type: 'spring' } }" class="text-6xl font-black tracking-tight">
+      <span class="!text-transparent bg-clip-text bg-gradient-to-r from-[#ff79c6] via-[#bd93f9] to-[#8be9fd]">新预览</span>
+      <span class="text-blue">重构</span>
+    </h1>
+    
+  <p v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 400 } }" class="text-lg text-gray-400 max-w-lg text-center">
+      从底层架构到性能优化，全方位提升大屏编辑器体验
+    </p>
+    
+  <div v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 600 } }" class="flex gap-6 mt-4">
+      <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#ffb86c]/10 border border-[#ffb86c]/30">
+        <div class="i-carbon-cube text-[#ffb86c]"></div>
+        <span class="text-sm text-[#ffb86c]">架构升级</span>
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#bd93f9]/10 border border-[#bd93f9]/30">
+        <div class="i-carbon-tool-kit text-[#bd93f9]"></div>
+        <span class="text-sm text-[#bd93f9]">工具提效</span>
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#50fa7b]/10 border border-[#50fa7b]/30">
+        <div class="i-carbon-rocket text-[#50fa7b]"></div>
+        <span class="text-sm text-[#50fa7b]">性能飞跃</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 title: 多 packages 拆分
