@@ -420,13 +420,103 @@ class: text-center
   <div class="text-[#ffb86c] font-bold tracking-widest uppercase">减少技术复杂度 (D)：JS API 的三层结构设计</div>
 </div>
 
-<div class="flex flex-col text-left">
-
-* 通用层（组件隐藏/显示）
-
-* 配置面板层（跑马灯开启/关闭）
-
-* 视图层（表格：设置单元格颜色）
+<div class="flex flex-col items-center gap-6 mt-8">
+  <div class="flex items-end gap-4 w-full max-w-4xl justify-center">
+  <div v-motion :initial="{ y: 50, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 0, duration: 600 } }" class="flex-1 p-5 bg-gradient-to-b from-[#50fa7b]/20 to-[#50fa7b]/5 rounded-2xl border border-[#50fa7b]/30 backdrop-blur-sm group hover:border-[#50fa7b]/60 transition-all h-48">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-[#50fa7b]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div class="i-carbon-layers text-xl text-[#50fa7b]"></div>
+        </div>
+        <div class="text-left">
+          <div class="text-lg font-bold text-[#50fa7b]">通用层</div>
+          <div class="text-xs text-gray-400">Base Layer</div>
+        </div>
+      </div>
+      <div class="text-left text-sm text-gray-300 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-[#50fa7b]">•</span>
+          <span>组件隐藏/显示</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[#50fa7b]">•</span>
+          <span>通用属性控制</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[#50fa7b]">•</span>
+          <span>基础交互能力</span>
+        </div>
+      </div>
+    </div>
+    
+  <div v-motion :initial="{ y: 50, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 200, duration: 600 } }" class="flex-1 p-5 bg-gradient-to-b from-[#8be9fd]/20 to-[#8be9fd]/5 rounded-2xl border border-[#8be9fd]/30 backdrop-blur-sm group hover:border-[#8be9fd]/60 transition-all h-48">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-[#8be9fd]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div class="i-carbon-settings text-xl text-[#8be9fd]"></div>
+        </div>
+        <div class="text-left">
+          <div class="text-lg font-bold text-[#8be9fd]">配置面板层</div>
+          <div class="text-xs text-gray-400">Configuration Layer</div>
+        </div>
+      </div>
+      <div class="text-left text-sm text-gray-300 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-[#8be9fd]">•</span>
+          <span>跑马灯开启/关闭</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[#8be9fd]">•</span>
+          <span>配置项动态修改</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[#8be9fd]">•</span>
+          <span>面板联动控制</span>
+        </div>
+      </div>
+    </div>
+    
+  <div v-motion :initial="{ y: 50, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 400, duration: 600 } }" class="flex-1 p-5 bg-gradient-to-b from-[#bd93f9]/20 to-[#bd93f9]/5 rounded-2xl border border-[#bd93f9]/30 backdrop-blur-sm group hover:border-[#bd93f9]/60 transition-all h-48">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-[#bd93f9]/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div class="i-carbon-view text-xl text-[#bd93f9]"></div>
+        </div>
+        <div class="text-left">
+          <div class="text-lg font-bold text-[#bd93f9]">视图层</div>
+          <div class="text-xs text-gray-400">View Layer</div>
+        </div>
+      </div>
+      <div class="text-left text-sm text-gray-300 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="text-[#bd93f9]">•</span>
+          <span>表格：设置单元格颜色</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[#bd93f9]">•</span>
+          <span>图表：更新数据源</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[#bd93f9]">•</span>
+          <span>组件特有视图操作</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 700 } }" class="flex items-center gap-4 text-xs text-gray-400 mt-2">
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded bg-[#50fa7b]/30 border border-[#50fa7b]/50"></div>
+      <span>所有组件通用</span>
+    </div>
+    <div class="i-carbon-arrow-right text-gray-600"></div>
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded bg-[#8be9fd]/30 border border-[#8be9fd]/50"></div>
+      <span>配置面板映射</span>
+    </div>
+    <div class="i-carbon-arrow-right text-gray-600"></div>
+    <div class="flex items-center gap-2">
+      <div class="w-3 h-3 rounded bg-[#bd93f9]/30 border border-[#bd93f9]/50"></div>
+      <span>组件视图特有</span>
+    </div>
+  </div>
 </div>
 
 ---
@@ -992,6 +1082,7 @@ clicks: 1
   <div v-click="1" v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1, transition: { delay: 0 } }" class="grid grid-cols-12 gap-2 items-center p-2 bg-white/5 rounded-lg mb-1.5 border border-white/10">
     <div class="col-span-4 font-mono text-[#8be9fd] font-semibold text-left text-sm truncate" title="湖南大学2023年个人年度报告">湖南大学年度报告</div>
     <div class="col-span-6 flex items-center gap-2">
+      <span class="text-xs font-bold text-[#50fa7b] w-12">0.41s</span>
       <div class="flex-1 relative h-5">
         <div class="absolute inset-0 h-full bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff5555] to-[#ff79c6] rounded-full opacity-50" style="width: 16%"></div></div>
         <div class="absolute inset-0 h-full rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#50fa7b] to-[#8be9fd] rounded-full" style="width: 4%"></div></div>
@@ -1104,28 +1195,28 @@ layout: center
     新预览重构性能优化总结
   </h1>
   
-  <div v-click v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { duration: 500 } }" class="relative mb-1">
+  <div v-motion :initial="{ scale: 0.8, opacity: 0 }" :enter="{ scale: 1, opacity: 1, transition: { duration: 500 } }" class="relative mb-1">
     <div class="text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#50fa7b] to-[#8be9fd]">
       50%
     </div>
   </div>
   
   <div class="grid grid-cols-3 gap-6 mt-8 max-w-3xl">
-    <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 100 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+    <div v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 100 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
       <div class="text-3xl font-bold text-[#50fa7b] mb-1">46%</div>
       <div class="text-xs text-gray-400 text-center">简单模板<br/>平均提升</div>
     </div>
-    <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 200 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+    <div v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 200 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
       <div class="text-3xl font-bold text-[#8be9fd] mb-1">88%</div>
       <div class="text-xs text-gray-400 text-center">复杂模板<br/>最高提升</div>
     </div>
-    <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
+    <div v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="flex flex-col items-center p-4 bg-white/5 rounded-2xl border border-white/10">
       <div class="text-3xl font-bold text-[#bd93f9] mb-1">76%</div>
       <div class="text-xs text-gray-400 text-center">客户场景<br/>最高提升</div>
     </div>
   </div>
   
-  <div v-click v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 500 } }" class="mt-10 px-8 py-4 bg-gradient-to-r from-[#50fa7b]/10 via-[#8be9fd]/10 to-[#bd93f9]/10 rounded-2xl border border-[#50fa7b]/30">
+  <div v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 500 } }" class="mt-10 px-8 py-4 bg-gradient-to-r from-[#50fa7b]/10 via-[#8be9fd]/10 to-[#bd93f9]/10 rounded-2xl border border-[#50fa7b]/30">
     <div class="flex items-center gap-3">
       <div class="i-carbon-checkmark-filled text-3xl text-[#50fa7b]"></div>
       <span class="text-xl font-bold text-white">新预览重构圆满成功！</span>
@@ -1144,7 +1235,7 @@ layout: default
 </div>
 
 <div class="mt-20 grid grid-cols-2 gap-8 px-4">
-  <div v-click v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+  <div v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
     <div class="flex items-center gap-3 mb-4">
       <div class="i-carbon-time text-2xl text-[#ffb86c]"></div>
       <h3 class="text-xl font-bold text-[#ffb86c]">任务预估不准确</h3>
@@ -1173,7 +1264,7 @@ layout: default
     </div>
   </div>
   
-  <div v-click v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+  <div v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
     <div class="flex items-center gap-3 mb-4">
       <div class="i-carbon-code text-2xl text-[#bd93f9]"></div>
       <h3 class="text-xl font-bold text-[#bd93f9]">架构设计更新滞后</h3>
@@ -1218,7 +1309,7 @@ layout: default
 </div>
 
 <div class="mt-25 grid grid-cols-2 gap-8 px-4">
-  <div v-click v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+  <div v-motion :initial="{ x: -30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
     <div class="flex items-center gap-3 mb-4">
       <div class="i-carbon-education text-2xl text-[#8be9fd]"></div>
       <h3 class="text-xl font-bold text-[#8be9fd]">增加传道的能力</h3>
@@ -1252,7 +1343,7 @@ layout: default
     </div>
   </div>
   
-<div v-click v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
+<div v-motion :initial="{ x: 30, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="bg-white/5 rounded-2xl p-6 border border-white/10">
     <div class="flex items-center gap-3 mb-4">
       <div class="i-carbon-idea text-2xl text-[#bd93f9]"></div>
       <h3 class="text-xl font-bold text-[#bd93f9]">三思而后行</h3>
