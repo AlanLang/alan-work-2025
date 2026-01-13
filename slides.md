@@ -1695,6 +1695,65 @@ layout: default
 -->
 
 ---
+title: 对 AI 的展望
+layout: default
+---
+
+<style>
+@keyframes ai-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+@keyframes data-flow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+@keyframes circuit-glow {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 121, 198, 0.5)); }
+  50% { filter: drop-shadow(0 0 20px rgba(255, 121, 198, 0.8)); }
+}
+.ai-pulse { animation: ai-pulse 3s ease-in-out infinite; }
+.circuit-glow { animation: circuit-glow 2s ease-in-out infinite; }
+</style>
+
+<!-- AI 主题背景 -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <!-- 数据流效果 -->
+  <div class="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#ff79c6]/30 to-transparent" style="animation: data-flow 4s linear infinite;"></div>
+  <div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#bd93f9]/30 to-transparent" style="animation: data-flow 5s linear infinite; animation-delay: 1s;"></div>
+  <div class="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#8be9fd]/30 to-transparent" style="animation: data-flow 6s linear infinite; animation-delay: 2s;"></div>
+  
+  <!-- 光晕 -->
+  <div class="absolute top-20 left-1/4 w-64 h-64 bg-[#ff79c6]/8 rounded-full blur-3xl ai-pulse"></div>
+  <div class="absolute bottom-20 right-1/4 w-72 h-72 bg-[#bd93f9]/8 rounded-full blur-3xl ai-pulse" style="animation-delay: 1s;"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#8be9fd]/5 rounded-full blur-3xl"></div>
+</div>
+
+<div class="abs-tl m-10 flex items-center gap-2">
+  <div v-motion :initial="{ scale: 0, rotate: -180 }" :enter="{ scale: 1, rotate: 0, transition: { type: 'spring', stiffness: 200 } }" class="w-3 h-3 rounded-full bg-[#ff79c6] shadow-[0_0_15px_#ff79c6]"></div>
+  <div v-motion :initial="{ y: -20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 300 } }" class="text-[#ff79c6] font-bold tracking-widest uppercase">对 AI 的展望</div>
+</div>
+
+<div class="mt-40 max-w-4xl mx-auto relative z-10">
+  <!-- 主标题 -->
+  <div v-motion :initial="{ y: 50, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { duration: 800 } }" class="text-center mb-12">
+    <h1 class="text-5xl font-black mb-4 !text-transparent bg-clip-text bg-gradient-to-r from-[#ff79c6] via-[#bd93f9] to-[#8be9fd]">
+      当代码变得廉价时
+    </h1>
+    <p v-motion :initial="{ y: 20, opacity: 0 }" :enter="{ y: 0, opacity: 1, transition: { delay: 400 } }" class="text-lg text-gray-400 italic mt-4">
+      AI 写的代码往往又快又好，作为工程师，应该怎么办？
+    </p>
+  </div>
+</div>
+
+<!--
+其实在两年以前的复盘里，我们就已经在提到 AI 了，如果说前几年我们还在讨论 AI 能不能做事、会不会做事，那么到了 2025 年，这个问题几乎已经失去了继续讨论的意义。我们不再站在岸边观察潮水，而是已经身处浪潮之中。无论情愿与否，这一年，几乎没有人还能置身事外，所有人都成为了这场巨变的直接参与者。
+
+AI 写的代码往往又快又好，作为工程师，应该怎么办？当代码的生成成本趋近于零时，我们的价值在哪里？这可能是每个开发者都需要重新思考的问题。我觉得最应该学习的一项技能，会是如何向 AI 清晰地表达需求。在 AI 时代，程序员的角色正在从"代码编写者"转变为"代码验证者"和"需求定义者"。这种验证能力，新时代里会比单纯的编码能力更加重要。利用独特的工程师嗅觉，分辨 AI 写出的 good code 和 bad code，是 copilot 和 vibe coding 中工程师的新责任。
+-->
+
+---
 title: 致谢
 layout: cover
 class: bg-blend-overlay bg-black65
@@ -1739,7 +1798,7 @@ class: bg-blend-overlay bg-black65
 </div>
 
 <!--
-最后按照惯例一首打油诗结束我本次的年度复盘：
+以上就是我 2025 年的工作复盘，最后按照惯例一首打油诗结束我本次的年度复盘：
 
 时来岁终莫彷徨，蓄力前行路更长。
 只盼大屏编辑器，一年更比一年强。
